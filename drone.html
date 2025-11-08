@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Drone - Phoenix Warriors</title>
+  <link rel="stylesheet" href="./stylesheet.css" />
+</head>
+<body>
+  <header>
+    <nav>
+        <ul class="navbar">
+          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo"/></a></li>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown">
+              <a href="drone.html">Our Drone</a>
+              <ul class="dropdown-content">
+              <li><a href="drone.html#features">Features</a></li>
+              <li><a href="drone.html#tech">Technology</a></li>
+              <li><a href="drone.html#gallery">Gallery</a></li>
+              </ul>
+          </li>
+
+          <li class="dropdown">
+              <a href="sponsor.html">Our Sponsors</a>
+              <ul class="dropdown-content">
+              <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
+              <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
+              <li><a href="sponsor.html#community">Community Partners</a></li>
+              </ul>
+          </li>
+
+          <li class="dropdown">
+              <a href="about.html">About Us</a>
+              <ul class="dropdown-content">
+              <li><a href="about.html#mission">Our Mission</a></li>
+              <li><a href="about.html#team">Meet the Team</a></li>
+              <li><a href="about.html#history">History</a></li>
+              </ul>
+          </li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Drone</h1>
+
+    <section id="features">
+      <h2>Features</h2>
+      <p>Lightweight frame, precision sensors, and modular design for easy upgrades.</p>
+    </section>
+
+    <section id="tech">
+      <h2>Technology</h2>
+      <p>Powered by AI-assisted flight control, real-time telemetry, and advanced obstacle avoidance.</p>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p>Explore photos and videos of our drone in action during competitions and test flights.</p>
+
+      <div class="slider-container">
+        <div class="slider-track" id="slider-track">
+          <img src="drone/drone1.jpg" alt="Drone 1" />
+          <img src="drone/drone2.jpg" alt="Drone 2" />
+          <img src="drone/drone3.jpg" alt="Drone 3" />
+          <img src="drone/drone4.jpg" alt="Drone 4" />
+          <img src="drone/drone1.jpg" alt="Drone 5" />
+          <img src="drone/drone2.jpg" alt="Drone 6" />
+          <img src="drone/drone3.jpg" alt="Drone 7" />
+          <img src="drone/drone4.jpg" alt="Drone 8" />
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Phoenix Warriors. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Image slider logic
+    const images = ['drone1.jpg', 'drone2.jpg', 'drone3.jpg', 'drone4.jpg'];
+    let currentIndex = 0;
+
+    const track = document.getElementById('slider-track');
+    const totalImages = track.children.length;
+    const visibleImages = 4;
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % (totalImages - visibleImages + 1);
+      const offset = index * (100 / visibleImages);
+      track.style.transform = `translateX(-${offset}%)`;
+    }, 2000);
+  </script>
+
+</body>
+</html>

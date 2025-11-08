@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us - Phoenix Warriors</title>
+  <link rel="stylesheet" href="./stylesheet.css" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us - Phoenix Warriors</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+        <ul class="navbar">
+          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo"/></a></li>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown">
+              <a href="drone.html">Our Drone</a>
+              <ul class="dropdown-content">
+              <li><a href="drone.html#features">Features</a></li>
+              <li><a href="drone.html#tech">Technology</a></li>
+              <li><a href="drone.html#gallery">Gallery</a></li>
+              </ul>
+          </li>
+
+          <li class="dropdown">
+              <a href="sponsor.html">Our Sponsors</a>
+              <ul class="dropdown-content">
+              <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
+              <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
+              <li><a href="sponsor.html#community">Community Partners</a></li>
+              </ul>
+          </li>
+
+          <li class="dropdown">
+              <a href="about.html">About Us</a>
+              <ul class="dropdown-content">
+              <li><a href="about.html#mission">Our Mission</a></li>
+              <li><a href="about.html#team">Meet the Team</a></li>
+              <li><a href="about.html#history">History</a></li>
+              </ul>
+          </li>
+        </ul>
+    </nav>
+</header>
+
+  <main>
+    <h1>About Phoenix Warriors</h1>
+
+    <section id="mission">
+      <h2>Our Mission</h2>
+      <p>To innovate, inspire, and compete in drone technology with passion and precision.</p>
+    </section>
+
+    <section id="team">
+      <h2>Meet the Team</h2>
+      <ul>
+        <li><strong>Rayansh Singh</strong> – Team Manager</li>
+        <li><strong>Aryan Nale</strong> – Graphic Designer / Vice-Manager</li>
+        <li><strong>Darsh Askand</strong> –  Product Manager / Vice-Manager</li>
+        <li><strong>Ishan Kodre</strong> – Design Engineer</li>
+        <li><strong>Varad Kodre</strong> – Graphic Designer</li>
+        <li><strong>Rishit Singh</strong> – Marketing Manager</li>
+        <li><strong>Ovish Pathak</strong> – Marketing Manager</li>
+      </ul>
+    </section>
+
+    <section id="history">
+      <h2>History</h2>
+      <p>Founded in 2025, Phoenix Warriors began as a small robotics club of Clara Global School Pune students and quickly rose to national recognition through drone competitions and innovation showcases.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Phoenix Warriors Clara Global School. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Load header.html into the header section
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('site-header').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
