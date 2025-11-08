@@ -2,40 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Drone - Phoenix Warriors</title>
   <link rel="stylesheet" href="./stylesheet.css" />
 </head>
 <body>
   <header>
     <nav>
-        <ul class="navbar">
-          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo"/></a></li>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <ul class="navbar" id="main-nav">
+          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
           <li><a href="index.html">Home</a></li>
 
           <li class="dropdown">
               <a href="drone.html">Our Drone</a>
               <ul class="dropdown-content">
-              <li><a href="drone.html#features">Features</a></li>
-              <li><a href="drone.html#tech">Technology</a></li>
-              <li><a href="drone.html#gallery">Gallery</a></li>
+                <li><a href="drone.html#features">Features</a></li>
+                <li><a href="drone.html#tech">Technology</a></li>
+                <li><a href="drone.html#gallery">Gallery</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="sponsor.html">Our Sponsors</a>
               <ul class="dropdown-content">
-              <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
-              <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
-              <li><a href="sponsor.html#community">Community Partners</a></li>
+                <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
+                <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
+                <li><a href="sponsor.html#community">Community Partners</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="about.html">About Us</a>
               <ul class="dropdown-content">
-              <li><a href="about.html#mission">Our Mission</a></li>
-              <li><a href="about.html#team">Meet the Team</a></li>
-              <li><a href="about.html#history">History</a></li>
+                <li><a href="about.html#mission">Our Mission</a></li>
+                <li><a href="about.html#team">Meet the Team</a></li>
+                <li><a href="about.html#history">History</a></li>
               </ul>
           </li>
         </ul>
@@ -81,20 +83,55 @@
   </footer>
 
   <script>
-    // Image slider logic
-    const images = ['drone1.jpg', 'drone2.jpg', 'drone3.jpg', 'drone4.jpg'];
-    let currentIndex = 0;
+    // Reuse nav/dropdown script
+    (function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('main-nav');
 
-    const track = document.getElementById('slider-track');
-    const totalImages = track.children.length;
-    const visibleImages = 4;
-    let index = 0;
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
+        });
+      }
 
-    setInterval(() => {
-      index = (index + 1) % (totalImages - visibleImages + 1);
-      const offset = index * (100 / visibleImages);
-      track.style.transform = `translateX(-${offset}%)`;
-    }, 2000);
+      document.querySelectorAll('.dropdown > a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const mq = window.matchMedia('(max-width: 768px)');
+          if (mq.matches) {
+            e.preventDefault();
+            const li = this.parentElement;
+            li.classList.toggle('open');
+          }
+        });
+      });
+    })();
+
+    // Image slider logic (works with responsive CSS)
+    (function () {
+      const track = document.getElementById('slider-track');
+      let totalImages = track.children.length;
+      let visibleImages = 4;
+
+      function updateVisible() {
+        const w = window.innerWidth;
+        if (w <= 600) visibleImages = 1;
+        else if (w <= 900) visibleImages = 2;
+        else visibleImages = 4;
+      }
+
+      updateVisible();
+      window.addEventListener('resize', updateVisible);
+
+      let index = 0;
+      setInterval(() => {
+        totalImages = track.children.length;
+        index = (index + 1) % (Math.max(1, totalImages - visibleImages + 1));
+        const offset = index * (100 / visibleImages);
+        track.style.transform = `translateX(-${offset}%)`;
+      }, 2000);
+    })();
   </script>
 
 </body>

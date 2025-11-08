@@ -2,40 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sponsors - Phoenix Warriors</title>
   <link rel="stylesheet" href="./stylesheet.css" />
 </head>
 <body>
   <header>
     <nav>
-        <ul class="navbar">
-          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo"/></a></li>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+        <ul class="navbar" id="main-nav">
+          <li><a href="index.html"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
           <li><a href="index.html">Home</a></li>
 
           <li class="dropdown">
               <a href="drone.html">Our Drone</a>
               <ul class="dropdown-content">
-              <li><a href="drone.html#features">Features</a></li>
-              <li><a href="drone.html#tech">Technology</a></li>
-              <li><a href="drone.html#gallery">Gallery</a></li>
+                <li><a href="drone.html#features">Features</a></li>
+                <li><a href="drone.html#tech">Technology</a></li>
+                <li><a href="drone.html#gallery">Gallery</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="sponsor.html">Our Sponsors</a>
               <ul class="dropdown-content">
-              <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
-              <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
-              <li><a href="sponsor.html#community">Community Partners</a></li>
+                <li><a href="sponsor.html#platinum">Platinum Sponsors</a></li>
+                <li><a href="sponsor.html#gold">Gold Sponsors</a></li>
+                <li><a href="sponsor.html#community">Community Partners</a></li>
               </ul>
           </li>
 
           <li class="dropdown">
               <a href="about.html">About Us</a>
               <ul class="dropdown-content">
-              <li><a href="about.html#mission">Our Mission</a></li>
-              <li><a href="about.html#team">Meet the Team</a></li>
-              <li><a href="about.html#history">History</a></li>
+                <li><a href="about.html#mission">Our Mission</a></li>
+                <li><a href="about.html#team">Meet the Team</a></li>
+                <li><a href="about.html#history">History</a></li>
               </ul>
           </li>
         </ul>
@@ -71,31 +73,56 @@
       <section class="sponsor-slide">
         <h2>Community Partner</h2>
         <img src="sponsor/clara.png" alt="Clara Global School Logo" />
-        <p><strong>Clara Global School</strong> is a co-educational CBSE school in Pune offering world-class education in a multicultural environment. It has a low student-teacher ratio and partners with Speaking Tree Education Institution to deliver a concept-driven curriculum.</p>
+        <p><strong>Clara Global School</strong> is a co-educational CBSE school in Pune offering world-class education in a multicultural environment.</p>
       </section>
     </div>
   </main>
   <footer>
     <p>&copy; 2025 Phoenix Warriors. All rights reserved.</p>
   </footer>
-  
+
   <script>
-    const slides = document.querySelectorAll('.sponsor-slide');
-    let current = 0;
+    // Nav + dropdown behavior (same pattern as other pages)
+    (function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('main-nav');
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
+        });
+      }
+
+      document.querySelectorAll('.dropdown > a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const mq = window.matchMedia('(max-width: 768px)');
+          if (mq.matches) {
+            e.preventDefault();
+            const li = this.parentElement;
+            li.classList.toggle('open');
+          }
+        });
       });
-    }
 
-    setInterval(() => {
-      current = (current + 1) % slides.length;
+      // Sponsor slider: keep existing behavior but ensure first slide visible
+      const slides = document.querySelectorAll('.sponsor-slide');
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 5000);
+
       showSlide(current);
-    }, 5000);
-
-    // Show first slide initially
-    showSlide(current);
+    })();
   </script>
 
 </body>
