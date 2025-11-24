@@ -214,14 +214,7 @@ img {
     border-top: none;
   }
 
-  /* Make dropdowns expand inline on small screens */
-  .dropdown .dropdown-content {
-    position: static;
-    box-shadow: none;
-    padding-left: 10px;
-  }
-
-  .dropdown.open .dropdown-content {
+    .dropdown.open .dropdown-content {
     display: block;
   }
 
