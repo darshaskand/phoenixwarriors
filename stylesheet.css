@@ -277,6 +277,7 @@ img {
     border-top: none;
   }
 
+<<<<<<< HEAD
   /* Make dropdowns expand inline on small screens */
   .dropdown .dropdown-content {
     position: static;
@@ -286,6 +287,9 @@ img {
   }
 
   .dropdown.open .dropdown-content {
+=======
+    .dropdown.open .dropdown-content {
+>>>>>>> 5e862669e74784076be2dec56e56c8a20c7e85fe
     display: block;
   }
 
