@@ -339,3 +339,17 @@ img {
   outline: none;
   cursor: pointer;
 }
+
+.jersey-gallery {
+  display: flex;              /* Places images side by side */
+  justify-content: center;    /* Centers them horizontally */
+  gap: 10px;                  /* Space between images */
+  flex-wrap: wrap;            /* Wraps to next line on small screens */
+}
+
+.jersey-gallery img {
+  max-width: 30%;            /* Prevents overflow */
+  height: auto;               /* Keeps aspect ratio */
+  flex: 1 1 45%;              /* Each image takes ~45% width, adjusts on screen size */
+  border-radius: 10px;         /* Optional: rounded corners */
+}

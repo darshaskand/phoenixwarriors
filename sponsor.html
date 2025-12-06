@@ -13,31 +13,14 @@
         <ul class="navbar" id="main-nav">
           <li><a href="index.html" title="Go to Home"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
           <li><a href="index.html" title="Home Page">Home</a></li>
-
-          <li class="dropdown">
-              <a href="drone.html" title="Learn about our drone">Our Drone</a>
-              <ul class="dropdown-content">
-                <li><a href="drone.html#features" title="View drone features">Features</a></li>
-                <li><a href="drone.html#tech" title="View drone technology">Technology</a></li>
-                <li><a href="drone.html#gallery" title="View drone gallery">Gallery</a></li>
-              </ul>
-          </li>
-
+          <li><a href="drone.html" title="Learn about our drone">Our Drone</a></li>
           <li><a href="sponsor.html" title="View our sponsors">Sponsors</a></li>
-
-          <li class="dropdown">
-              <a href="about.html" title="Learn about our team">About Us</a>
-              <ul class="dropdown-content">
-                <li><a href="about.html#mission" title="Our team mission">Our Mission</a></li>
-                <li><a href="about.html#team" title="Meet our team">Meet the Team</a></li>
-                
-              </ul>
-          </li>
+          <li><a href="about.html" title="Learn about our team">About Us</a></li>
         </ul>
     </nav>
   </header>
 
-  <main>
+  <main style="margin: 20px;">
     <h1>Our Sponsors</h1>
 
     <div class="sponsor-slider" id="sponsor-slider">
@@ -54,7 +37,7 @@
         <img src="sponsor/dronewars.png" alt="Dronewars Logo" title="Drone Wars - Drone Technology Partner" />
         <p><strong>Drone Wars</strong> empowers student teams with cutting-edge drone kits and expert guidance for competitions.</p>
         <ul>
-          <li title="CAD software for drone design">Drone Design with CAD Software</li>
+          <li title="CAD software for drone design">Drone Design with Fusion 360 CAD Software</li>
           <li title="Learning through real-world projects">Scientific Learning through Real Projects</li>
           <li title="Practical hands-on activities">Hands-On Activities</li>
           <li title="Understanding drone concepts">Drone Technology Concepts</li>
@@ -72,7 +55,7 @@
     </div>
   </main>
   <footer>
-    <p>&copy; 2025 Phoenix Warriors. All rights reserved.</p>
+    <p>&copy; 2025 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
   </footer>
 
   <script>
@@ -113,7 +96,7 @@
       setInterval(() => {
         current = (current + 1) % slides.length;
         showSlide(current);
-      }, 5000);
+      }, 3000);
 
       showSlide(current);
     })();
