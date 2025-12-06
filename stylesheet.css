@@ -353,3 +353,9 @@ img {
   flex: 1 1 45%;              /* Each image takes ~45% width, adjusts on screen size */
   border-radius: 10px;         /* Optional: rounded corners */
 }
+/* 📱 Mobile screens */
+@media (max-width: 768px) {
+  .jersey-gallery img {
+    max-width: 60%;     /* On mobile, images take 60% width */
+  }
+}
