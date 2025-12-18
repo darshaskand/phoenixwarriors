@@ -359,7 +359,3 @@ img {
     max-width: 60%;     /* On mobile, images take 60% width */
   }
 }
-.sponsor-slide img {
-  display: block;
-  margin: auto;
-}
