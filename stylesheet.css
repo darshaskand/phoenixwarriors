@@ -323,21 +323,6 @@ img {
   }
 }
 
-/* Ensure team member links look like plain text and do not change color */
-#team a,
-#team a:link,
-#team a:visited {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-#team a:hover,
-#team a:active,
-#team a:focus {
-  color: inherit !important;
-  text-decoration: none !important;
-  outline: none;
-  cursor: pointer;
 }
 
 .jersey-gallery {
