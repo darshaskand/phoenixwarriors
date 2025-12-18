@@ -1,3 +1,364 @@
+/* Shared fiery theme */
+body {
+  background-color: #fff8dc; /* light gold */
+  color: #4b1c00; /* dark brown for readability */
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #ff4500; /* orange-red */
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+
+.logo {
+  height: auto;
+  max-height: 60px;
+  max-width: 160px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation */
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.navbar li a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+  color: #ffd700; /* brighter gold */
+}
+
+/* Tooltip styling */
+[title] {
+  cursor: help;
+}
+
+[title]:hover {
+  position: relative;
+}
+
+/* Navigation toggle button */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff6347; /* tomato red */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 50;
+  border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li a {
+  color: white;
+  display: block;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+
+.dropdown-content li a:hover {
+  background-color: gold;
+  color: #4b1c00;
+  padding-left: 14px;
+}
+
+/* Content sections */
+main h1, main h2 {
+  color: #ff8c00; /* dark orange */
+}
+
+section {
+  margin: 20px;
+  padding: 15px;
+  background-color: #fff0c2; /* soft gold */
+  border-left: 5px solid #ff4500;
+  border-radius: 4px;
+}
+
+footer {
+  background-color: #b22222; /* firebrick red */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+/* Slider (gallery) */
+.slider-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-track img {
+    width: 25%; /* 4 images per view by default */
+    height: auto;
+    flex-shrink: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.slider-track img:hover {
+    transform: scale(1.05);
+}
+
+/* Sponsor slider */
+.sponsor-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff0c2;
+}
+
+.sponsor-slide {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.sponsor-slide img {
+    width: 300px;
+    max-width: 30%;
+    height: auto;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-slide img:hover {
+    transform: scale(1.08);
+}
+
+.sponsor-slide ul {
+    list-style-type: disc;
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding-left: 20px;
+}
+
+.sponsor-slide ul li {
+    padding: 5px 0;
+    cursor: default;
+}
+
+.sponsor-slide.active {
+    display: block;
+}
+
+/* Utility: make images responsive globally */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive rules */
+@media (max-width: 1024px) {
+  .slider-track img {
+    width: 33.3333%;
+  }
+  .sponsor-slide img {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  .slider-track img {
+    width: 50%;
+  }
+  .navbar {
+    gap: 12px;
+  }
+  .logo {
+    max-height: 50px;
+    max-width: 140px;
+  }
+  .sponsor-slide img {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 14px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    display: none;
+    background-color: #ff6347;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .navbar.open {
+    display: flex;
+  }
+
+  .navbar li {
+    padding: 10px 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .navbar li:first-child {
+    border-top: none;
+  }
+
+  /* Make dropdowns expand inline on small screens */
+  .dropdown .dropdown-content {
+    position: static;
+    box-shadow: none;
+    padding-left: 10px;
+    background-color: #ff7f50;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none; /* disable hover open on touch */
+  }
+
+  .slider-track img {
+    width: 100%;
+  }
+
+  .sponsor-slide img {
+    max-width: 70%;
+    margin: 0 auto 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header { 
+    padding: 12px; 
+  }
+  .logo { 
+    max-height: 44px; 
+    max-width: 120px; 
+  }
+  section { 
+    margin: 12px; 
+    padding: 12px; 
+  }
+  main h1 { 
+    font-size: 1.4rem; 
+  }
+  .navbar {
+    top: 50px;
+  }
+}
+
+/* Ensure team member links look like plain text and do not change color */
+#team a,
+#team a:link,
+#team a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+#team a:hover,
+#team a:active,
+#team a:focus {
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none;
+  cursor: pointer;
+}
+
+.jersey-gallery {
+  display: flex;              /* Places images side by side */
+  justify-content: center;    /* Centers them horizontally */
+  gap: 10px;                  /* Space between images */
+  flex-wrap: wrap;            /* Wraps to next line on small screens */
+}
+
+.jersey-gallery img {
+  max-width: 30%;            /* Prevents overflow */
+  height: auto;               /* Keeps aspect ratio */
+  flex: 1 1 45%;              /* Each image takes ~45% width, adjusts on screen size */
+  border-radius: 10px;         /* Optional: rounded corners */
+}
+/* 📱 Mobile screens */
+@media (max-width: 768px) {
+  .jersey-gallery img {
+    max-width: 60%;     /* On mobile, images take 60% width */
+  }
+}
 .sponsor-slide img {
   display: block;
   margin: auto;
