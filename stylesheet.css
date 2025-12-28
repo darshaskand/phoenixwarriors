@@ -37,13 +37,6 @@ header {
   flex-wrap: nowrap;
 }
 
-.navbar li a {
-  color: gold;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
 .navbar li a:hover {
   color: #ffd700; /* brighter gold */
 }
@@ -248,8 +241,16 @@ img {
   .nav-toggle {
     display: inline-block;
     position: absolute;
-    left: 10px;
-    top: 14px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .navbar li:first-child {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .navbar {
