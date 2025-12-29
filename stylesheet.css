@@ -68,6 +68,22 @@ header {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* PPT Button */
+.ppt-button {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.ppt-button:hover {
+  background-color: #ff6347;
+}
+
 /* Dropdowns */
 .dropdown {
   position: relative;
