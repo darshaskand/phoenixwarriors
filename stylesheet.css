@@ -28,7 +28,7 @@ header {
 
 /* Navigation */
 .navbar {
-  list-style: none;
+  list-style: bold;
   display: flex;
   gap: 20px;
   padding: 0;
@@ -146,7 +146,7 @@ footer {
 
 .slider-track img {
     width: 25%; /* 4 images per view by default */
-    height: auto;
+    height: 500px;
     flex-shrink: 0;
     padding: 5px;
     box-sizing: border-box;
@@ -184,7 +184,7 @@ footer {
 .sponsor-slide img {
     width: 300px;
     max-width: 30%;
-    height: auto;
+    height: 500px;
     margin: 10px 0;
     cursor: pointer;
     transition: transform 0.3s ease;
