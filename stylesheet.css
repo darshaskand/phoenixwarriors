@@ -37,13 +37,6 @@ header {
   flex-wrap: nowrap;
 }
 
-.navbar li a {
-  color: gold;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
 .navbar li a:hover {
   color: #ffd700; /* brighter gold */
 }
@@ -248,8 +241,16 @@ img {
   .nav-toggle {
     display: inline-block;
     position: absolute;
-    left: 10px;
-    top: 14px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .navbar li:first-child {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .navbar {
@@ -323,22 +324,7 @@ img {
   }
 }
 
-/* Ensure team member links look like plain text and do not change color */
-#team a,
-#team a:link,
-#team a:visited {
-  color: inherit !important;
-  text-decoration: none !important;
-}
 
-#team a:hover,
-#team a:active,
-#team a:focus {
-  color: inherit !important;
-  text-decoration: none !important;
-  outline: none;
-  cursor: pointer;
-}
 
 .jersey-gallery {
   display: flex;              /* Places images side by side */
