@@ -28,7 +28,7 @@ header {
 
 /* Navigation */
 .navbar {
-  list-style: none;
+  list-style: bold;
   display: flex;
   gap: 20px;
   padding: 0;
@@ -125,8 +125,8 @@ footer {
 /* Slider (gallery) */
 .slider-container {
     overflow: hidden;
-    width: 100%;
-    max-width: 1000px;
+    width: 30%;
+    max-width: 100px;
     margin: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -139,7 +139,7 @@ footer {
 
 .slider-track img {
     width: 25%; /* 4 images per view by default */
-    height: auto;
+    height: 500px;
     flex-shrink: 0;
     padding: 5px;
     box-sizing: border-box;
@@ -154,7 +154,7 @@ footer {
 /* Sponsor slider */
 .sponsor-slider {
     position: relative;
-    width: 100%;
+    width: 30%;
     max-width: 800px;
     margin: auto;
     overflow: hidden;
@@ -177,8 +177,8 @@ footer {
 .sponsor-slide img {
     width: 300px;
     max-width: 30%;
-    height: auto;
-    margin: 10px auto;
+    height: 500px;
+    margin: 10px 0;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -334,7 +334,7 @@ img {
 }
 
 .jersey-gallery img {
-  max-width: 30%;            /* Prevents overflow */
+  max-width: 20%;            /* Prevents overflow */
   height: auto;               /* Keeps aspect ratio */
   flex: 1 1 45%;              /* Each image takes ~45% width, adjusts on screen size */
   border-radius: 10px;         /* Optional: rounded corners */
