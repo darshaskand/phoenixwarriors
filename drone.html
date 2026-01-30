@@ -9,15 +9,18 @@
 <body>
   <header>
     <nav>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" title="Toggle navigation menu"></button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" title="Toggle navigation menu">Menu</button>
         <ul class="navbar" id="main-nav">
           <li><a href="index.html" title="Go to Home"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
-          <li><a href="index.html" title="Home Page">Home</a></li>
-          <li><a href="drone.html" title="Learn about our drone">Our Drone</a></li>
-          <li><a href="sponsor.html" title="View our sponsors">Sponsors</a></li>
-          <li><a href="about.html" title="Learn about our team">About Us</a></li>
+          <li><a href="index.html" title="Home Page"><strong>Home</strong></a></li>
+          <li><a href="drone.html" title="Learn about our drone"><strong>Our Drone</strong></a></li>
+          <li><a href="sponsor.html" title="View our sponsors"><strong>Sponsors</strong></a></li>
+          <li><a href="about.html" title="Learn about our team"><strong>About Us</strong></a></li>
         </ul>
     </nav>
+    <div id="countdown">
+      Countdown: <span id="days">0</span> Days <span id="hours">0</span> hrs <span id="minutes">0</span> min <span id="seconds">0</span> sec
+    </div>
   </header>
  
   <main style="margin: 20px;">
@@ -38,7 +41,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
+    <p>&copy; 2026 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
   </footer>
 
   <script>
@@ -93,5 +96,37 @@
     })();
   </script>
 
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date('2026-02-27T11:59:59');
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        updateNumber('days', days);
+        updateNumber('hours', hours);
+        updateNumber('minutes', minutes);
+        updateNumber('seconds', seconds);
+      } else {
+        document.getElementById('countdown').innerHTML = 'Event Started!';
+      }
+    }
+    
+    function updateNumber(id, newValue) {
+      const element = document.getElementById(id);
+      if (element.textContent != newValue) {
+        element.textContent = newValue;
+        element.classList.add('flip');
+        setTimeout(() => element.classList.remove('flip'), 600);
+      }
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>

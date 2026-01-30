@@ -9,15 +9,18 @@
 <body>
   <header>
     <nav>
-        <button class="nav-<button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" title="Toggle navigation menu">Menu</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" title="Toggle navigation menu">Menu</button>
         <ul class="navbar" id="main-nav">
           <li><a href="index.html" title="Go to Home"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
-          <li><a href="index.html" title="Home Page">Home</a></li>
-          <li><a href="drone.html" title="Learn about our drone">Our Drone</a></li>
-          <li><a href="sponsor.html" title="View our sponsors">Sponsors</a></li>
-          <li><a href="about.html" title="Learn about our team">About Us</a></li>
+          <li><a href="index.html" title="Home Page"><strong>Home</strong></a></li>
+          <li><a href="drone.html" title="Learn about our drone"><strong>Our Drone</strong></a></li>
+          <li><a href="sponsor.html" title="View our sponsors"><strong>Sponsors</strong></a></li>
+          <li><a href="about.html" title="Learn about our team"><strong>About Us</strong></a></li>
         </ul>
     </nav>
+    <div id="countdown">
+      Countdown: <span id="days">0</span> Days <span id="hours">0</span> hrs <span id="minutes">0</span> min <span id="seconds">0</span> sec
+    </div>
   </header>
   
 
@@ -38,12 +41,12 @@
         <img src="sponsor/dronewars.png" alt="Dronewars Logo" title="Drone Wars - Drone Technology Partner" />
         <p><strong>Drone Wars</strong> empowers student teams with cutting-edge drone kits and expert guidance for competitions.</p>
         <ul>
-          <li title="CAD software for drone design">Drone Design with Fusion 360 CAD Software</li>
-          <li title="Learning through real-world projects">Scientific Learning through Real Projects</li>
-          <li title="Practical hands-on activities">Hands-On Activities</li>
-          <li title="Understanding drone concepts">Drone Technology Concepts</li>
-          <li title="Communication and teamwork skills">Soft Skills Development</li>
-          <li title="Presentation and competition preparation">Drone Project Presentation & Competition</li>
+          <li>Drone Design with Fusion 360 CAD</li>
+          <li>Scientific Learning through Real Projects</li>
+          <li>Hands-On Activities</li>
+          <li>Drone Technology Concepts</li>
+          <li>Soft Skills Development</li>
+          <li>Drone Project Presentation & Competition</li>
         </ul>
       </section>
 
@@ -56,7 +59,7 @@
     </div>
   </main>
   <footer>
-    <p>&copy; 2025 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
+    <p>&copy; 2026 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
   </footer>
 
   <script>
@@ -84,24 +87,40 @@
         });
       });
 
-      // Sponsor slider: keep existing behavior but ensure first slide visible
-      const slides = document.querySelectorAll('.sponsor-slide');
-      let current = 0;
-
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-        });
-      }
-
-      setInterval(() => {
-        current = (current + 1) % slides.length;
-        showSlide(current);
-      }, 3000);
-
-      showSlide(current);
     })();
   </script>
 
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date('2026-02-27T11:59:59');
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        updateNumber('days', days);
+        updateNumber('hours', hours);
+        updateNumber('minutes', minutes);
+        updateNumber('seconds', seconds);
+      } else {
+        document.getElementById('countdown').innerHTML = 'Event Started!';
+      }
+    }
+    
+    function updateNumber(id, newValue) {
+      const element = document.getElementById(id);
+      if (element.textContent != newValue) {
+        element.textContent = newValue;
+        element.classList.add('flip');
+        setTimeout(() => element.classList.remove('flip'), 600);
+      }
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>

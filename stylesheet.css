@@ -28,7 +28,7 @@ header {
 
 /* Navigation */
 .navbar {
-  list-style: bold;
+  list-style: none;
   display: flex;
   gap: 20px;
   padding: 0;
@@ -125,8 +125,8 @@ footer {
 /* Slider (gallery) */
 .slider-container {
     overflow: hidden;
-    width: 30%;
-    max-width: 100px;
+    width: 90%;
+    max-width: 700px;
     margin: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -138,34 +138,40 @@ footer {
 }
 
 .slider-track img {
-    width: 25%; /* 4 images per view by default */
-    height: 500px;
+    width: 33.333%;
+    height: 300px;
     flex-shrink: 0;
     padding: 5px;
     box-sizing: border-box;
     cursor: pointer;
     transition: transform 0.3s ease;
+    object-fit: contain;
+    background-color: #fff; /* white background for contain */
 }
 
 .slider-track img:hover {
     transform: scale(1.05);
 }
 
-/* Sponsor slider */
+/* Sponsor display */
 .sponsor-slider {
-    position: relative;
-    width: 30%;
-    max-width: 800px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: #fff0c2;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .sponsor-slide {
-    display: none;
+    display: block;
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
     text-align: center;
     padding: 20px;
+    background-color: #fff0c2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     animation: fadeIn 0.5s ease;
 }
 
@@ -175,12 +181,15 @@ footer {
 }
 
 .sponsor-slide img {
-    width: 300px;
-    max-width: 30%;
-    height: 500px;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 300px;
     margin: 10px 0;
     cursor: pointer;
     transition: transform 0.3s ease;
+    object-fit: contain;
+    background-color: #fff;
 }
 
 .sponsor-slide img:hover {
@@ -189,8 +198,8 @@ footer {
 
 .sponsor-slide ul {
     list-style-type: disc;
-    text-align: center;
-    max-width: 600px;
+    text-align: left;
+    max-width: 300px;
     margin: 10px auto;
     padding-left: 20px;
 }
@@ -295,7 +304,16 @@ img {
   }
 
   .slider-track img {
-    width: 100%;
+    width: 50%;
+  }
+
+  .sponsor-slider {
+    flex-direction: column;
+  }
+
+  .sponsor-slide {
+    min-width: auto;
+    max-width: none;
   }
 
   .sponsor-slide img {
@@ -343,5 +361,30 @@ img {
 @media (max-width: 768px) {
   .jersey-gallery img {
     max-width: 60%;     /* On mobile, images take 60% width */
+  }
+}
+
+/* Countdown Timer Styles */
+#countdown {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9em;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  display: block !important;
+}
+
+#countdown span {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Responsive Countdown */
+@media (max-width: 768px) {
+  #countdown {
+    right: 10px;
+    font-size: 0.8em;
   }
 }
