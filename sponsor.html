@@ -9,9 +9,8 @@
 <body>
   <header>
     <nav>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" title="Toggle navigation menu">Menu</button>
+        <img src="logo.png" alt="Phoenix Warriors Logo" class="logo" />
         <ul class="navbar" id="main-nav">
-          <li><a href="index.html" title="Go to Home"><img src="logo.png" alt="Phoenix Warriors Logo" class="logo" /></a></li>
           <li><a href="index.html" title="Home Page"><strong>Home</strong></a></li>
           <li><a href="drone.html" title="Learn about our drone"><strong>Our Drone</strong></a></li>
           <li><a href="sponsor.html" title="View our sponsors"><strong>Sponsors</strong></a></li>
@@ -61,34 +60,6 @@
   <footer>
     <p>&copy; 2026 Phoenix Warriors. Clara Global School Pune India. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Nav + dropdown behavior (same pattern as other pages)
-    (function () {
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('main-nav');
-
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!expanded));
-          nav.classList.toggle('open');
-        });
-      }
-
-      document.querySelectorAll('.dropdown > a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const mq = window.matchMedia('(max-width: 768px)');
-          if (mq.matches) {
-            e.preventDefault();
-            const li = this.parentElement;
-            li.classList.toggle('open');
-          }
-        });
-      });
-
-    })();
-  </script>
 
   <script>
     function updateCountdown() {
