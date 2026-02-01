@@ -11,14 +11,19 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   background-color: #ff4500; /* orange-red */
   padding: 20px;
   color: white;
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -50,8 +55,13 @@ nav {
   flex-wrap: nowrap;
 }
 
-.navbar li a:hover {
+.navbar li a {
+  text-decoration: none;
   color: #ffd700; /* brighter gold */
+}
+
+.navbar li a:hover {
+  color: white;
 }
 
 /* Tooltip styling */
@@ -185,7 +195,7 @@ footer {
     max-width: 80%;
     height: auto;
     max-height: 300px;
-    margin: 10px 0;
+    margin: 10px auto;
     cursor: pointer;
     transition: transform 0.3s ease;
     object-fit: contain;
@@ -342,14 +352,10 @@ img {
 
 /* Countdown Timer Styles */
 #countdown {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
   font-size: 0.9em;
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  display: block !important;
+  display: block;
 }
 
 #countdown span {
@@ -359,8 +365,18 @@ img {
 
 /* Responsive Countdown */
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
   #countdown {
-    right: 10px;
     font-size: 0.8em;
+    margin-top: 10px;
+    text-align: center;
   }
 }
